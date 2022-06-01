@@ -8,14 +8,14 @@ function App() {
   const connect = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     let res = await provider.send("eth_requestAccounts", []);
-    console.log(res);
+    setAccount(res[0]);
   };
 
-  const getData = () => {
+  const getData = (_account) => {
     const options = { method: "GET", headers: { Accept: "application/json" } };
 
     fetch(
-      "https://api.opensea.io/api/v1/collections?offset=0&limit=50",
+      `https://api.opensea.io/api/v1/collections?asset_owner=${_account}offset=0&limit=50`,
       options
     )
       .then((response) => response.json())
