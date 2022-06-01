@@ -32,7 +32,20 @@ function App() {
     <div className="App">
       <p>{account}</p>
       <button onClick={connect}>connect</button>
-      <button onClick={getData}>Get Data</button>
+      {data.map((nft) => {
+        return (
+          <div>
+            <img
+              alt="nft image"
+              src={nft.image_thumbnail_url}
+              width="100px"
+              height="100px"
+            />
+            <p>{nft.name}</p>
+            <p>{nft.tokenID}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }
