@@ -1,6 +1,7 @@
 import "./App.css";
 import { ethers } from "ethers";
 import { useState } from "react";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [account, setAccount] = useState("");
@@ -30,6 +31,7 @@ function App() {
   };
   return (
     <div className="App">
+      <Navbar />
       <p>{account}</p>
       <button onClick={connect}>connect</button>
       {data.map((nft) => {
