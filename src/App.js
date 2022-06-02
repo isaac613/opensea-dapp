@@ -31,20 +31,28 @@ function App() {
   };
   return (
     <div className="App">
-      <Navbar />
-      <p>{account}</p>
-      <button onClick={connect}>connect</button>
+      <div className="navbar">
+        <Navbar />
+        <p>{account}</p>
+        <button onClick={connect}>connect</button>
+      </div>
       {data.map((nft) => {
         return (
-          <div>
-            <img
-              alt="nft image"
-              src={nft.image_thumbnail_url}
-              width="100px"
-              height="100px"
-            />
-            <p>{nft.name}</p>
-            <p>{nft.tokenID}</p>
+          <div className="box">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div className="content">
+              <img
+                alt="nft image"
+                src={nft.image_thumbnail_url}
+                width="100px"
+                height="100px"
+              />
+              <p>{nft.name}</p>
+              <p>{nft.tokenID}</p>
+            </div>
           </div>
         );
       })}
